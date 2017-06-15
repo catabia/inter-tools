@@ -2,7 +2,7 @@ Welcome to Inter-Tools!
 
 This package accompanies the paper
 
-Inter-Tools:  a toolkit for interactive research
+Inter-Tools:  a toolkit for interactome research
 by Hannah Catabia, Caren Smith, and Jose Ordovas
 June 25, 2017
 

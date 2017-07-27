@@ -406,13 +406,9 @@ def create_interactome_file(interactions, output_file, file_format):
 	header = ['entrez_A', 'entrez_B', 'uniprot_A', 'uniprot_B', 'symbol_A', 'symbol_B', 'interaction_detections_methods',
 				'publication_identifiers', 'taxid_A', 'taxid_B', 'interaction_type', 'source_database', 'from_files']
 	interactions.insert(0, header)
-	if file_format == 'tsv':
-		with open(output_file + '.tsv', 'w') as wr:
-			wr.writelines('\t'.join(item) + '\n' for item in interactions)
-	else:
-		wr = csv.writer(open(output_file + '.csv', 'wb'))
-		wr.writerows(interactions)
-	return
+	delimiter = {'tsv': '\t', 'csv': ','}[file_format]
+	wr = csv.writer(open(output_file + '.' + file_format, 'wb'), delimiter=delimiter)
+	wr.writerows(interactions)
 
 # =============================================================================
 # Writes a text file with information about the final interactome dataset
